@@ -1,6 +1,7 @@
 var app = require('../lib/application');
 var pome = require('../');
 var should = require('should');
+var Constants = require('../lib/util/constants');
 
 var WAIT_TIME = 500;
 var mockBase = process.cwd() + '/test';
@@ -110,6 +111,7 @@ describe('application test', function(){
 
       app.components.key1.should.eql(comp1);
       app.components.key2.should.eql(comp2);
+      console.log("**** app.components.key3=" + app.components.key3);
       app.components.key3.should.eql(comp3());
     });
 
@@ -421,7 +423,6 @@ describe('application test', function(){
       app.event.on(pome.events.ADD_SERVERS, function(servers) {
         // check event args
         newServers.should.eql(servers);
-
         // check servers
         var curServers = app.Servers;
         should.exist(curServers);
@@ -430,13 +431,11 @@ describe('application test', function(){
           item = newServers[i];
           item.should.eql(curServers[item.id]);
         }
-
         // check get server by id
         for(i=0, l=newServers.length; i<l; i++) {
           item = newServers[i];
           item.should.eql(app.getServerById(item.id));
         }
-
         // check server types
         var types = [];
         for(i=0, l=newServers.length; i<l; i++) {
@@ -448,9 +447,8 @@ describe('application test', function(){
         var types2 = app.ServerTypes;
         types.length.should.equal(types2.length);
         for(i=0, l=types.length; i<l; i++) {
-          types2.should.include(types[i]);
+          contains(types2, types[i]).should.be.true;
         }
-
         // check server type list
         var slist;
         for(i=0, l=newServers.length; i<l; i++) {
@@ -459,7 +457,6 @@ describe('application test', function(){
           should.exist(slist);
           contains(slist, item).should.be.true;
         }
-
         done();
       });
 
@@ -486,10 +483,8 @@ describe('application test', function(){
         newServers.should.eql(servers);
         addCount++;
       });
-
       app.event.on(pome.events.REMOVE_SERVERS, function(ids) {
         delIds.should.eql(ids);
-
         // check servers
         var curServers = app.Servers;
         should.exist(curServers);
@@ -498,13 +493,11 @@ describe('application test', function(){
           item = destServers[i];
           item.should.eql(curServers[item.id]);
         }
-
         // check get server by id
         for(i=0, l=destServers.length; i<l; i++) {
           item = destServers[i];
           item.should.eql(app.getServerById(item.id));
         }
-
         // check server types
         // NOTICE: server types would not clear when remove server from app
         var types = [];
@@ -517,9 +510,8 @@ describe('application test', function(){
         var types2 = app.ServerTypes;
         types.length.should.equal(types2.length);
         for(i=0, l=types.length; i<l; i++) {
-          types2.should.include(types[i]);
+            contains(types2, types[i]).should.be.true;
         }
-
         // check server type list
         var slist;
         for(i=0, l=destServers.length; i<l; i++) {
@@ -528,7 +520,6 @@ describe('application test', function(){
           should.exist(slist);
           contains(slist, item).should.be.true;
         }
-
         done();
       });
 
@@ -541,8 +532,8 @@ describe('application test', function(){
     it('should be called before application stopped.', function(done) {
       var count = 0;
       app.init({base: mockBase});
-      app.beforeStopHook(function() {
-        count++;
+      app.set(Constants.KEYWORDS.BEFORE_STOP_HOOK, function(){
+          count++;
       });
       app.start(function(err) {
         should.not.exist(err);
@@ -576,7 +567,7 @@ describe('application test', function(){
   });
 });
 
-var contains = function(slist, sinfo) {
+function contains(slist, sinfo) {
   for(var i=0, l=slist.length; i<l; i++) {
     if(slist[i].id === sinfo.id) {
       return true;
