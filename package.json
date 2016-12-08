@@ -1,0 +1,74 @@
+{
+  "name": "pome",
+  "version": "2.0.0",
+  "description": "pomelo 修改版",
+  "private": false,
+  "homepage": "https://github.com/fym201/pome#readme",
+
+  "scripts": {
+    "test": "grunt"
+  },
+
+ "bugs": {
+    "url": "https://github.com/fym201/pome/issues"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fym201/pome.git"
+  },
+
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/fym201/pome#license"
+    }
+  ],
+
+  "keywords": [
+      "pomelo",
+      "framework",
+      "game",
+      "web",
+      "server"
+    ],
+
+  "bin": {
+    "pome": "./bin/pome"
+  },
+
+  "dependencies": {
+    "async": "^2.1.4",
+    "seq-queue": "0.0.5",
+    "crc": "^3.4.3",
+    "cliff": "^0.1.10",
+    "mkdirp": "^0.5.1",
+    "pome-loader": "*",
+    "pome-rpc": "*",
+    "pome-protocol": "*",
+    "pome-admin": "*",
+    "pome-logger": "*",
+    "pome-scheduler": "*",
+    "ws": "*",
+    "socket.io": "^1.7.1",
+    "pome-protobuf": "*",
+    "node-bignumber": "^1.2.1",
+    "commander": "^2.9.0",
+    "mqtt": "^2.1.3",
+    "lodash":"*"
+  },
+
+  "devDependencies": {
+    "should": "^11.1.1",
+    "mocha": "^3.2.0",
+    "socket.io-client": "^1.7.1",
+    "muk": "^0.5.3",
+    "grunt": "*",
+    "grunt-mocha-test": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-jshint": "*",
+    "blanket": "*"
+  }
+  
+  
+}

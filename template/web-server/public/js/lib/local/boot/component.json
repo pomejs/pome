@@ -1,0 +1,11 @@
+{
+  "name": "boot",
+  "description": "Main app boot component",
+  "dependencies": {
+    "component/emitter":"master",
+    "NetEase/pome-protocol": "master",
+    "pomenode/pome-protobuf": "*",
+    "pomenode/pome-jsclient-websocket": "master"
+  },
+  "scripts": ["index.js"]
+}

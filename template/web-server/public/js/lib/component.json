@@ -1,0 +1,6 @@
+{
+  "name": "pome-client",
+  "description": "pome-client",
+  "local": [ "boot" ],
+  "paths": [ "local"]
+}
