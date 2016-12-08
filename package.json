@@ -3,25 +3,25 @@
   "version": "2.0.0",
   "description": "pomelo 修改版",
   "private": false,
-  "homepage": "https://github.com/fym201/pome#readme",
+  "homepage": "https://github.com/pomejs/pome#readme",
 
   "scripts": {
     "test": "grunt"
   },
 
  "bugs": {
-    "url": "https://github.com/fym201/pome/issues"
+    "url": "https://github.com/pomejs/pome/issues"
   },
 
   "repository": {
     "type": "git",
-    "url": "https://github.com/fym201/pome.git"
+    "url": "https://github.com/pomejs/pome.git"
   },
 
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/fym201/pome#license"
+      "url": "https://github.com/pomejs/pome#license"
     }
   ],
 
