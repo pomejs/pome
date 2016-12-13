@@ -48,7 +48,7 @@
       </div>
       <div class="g-link">
         Home:
-        <a href="https://github.com/NetEase/pome">https://github.com/NetEase/pome</a>
+        <a href="https://github.com/NetEase/pome">https://github.com/pomejs/pome</a>
       </div>
       <div class="g-button">
         <input id="test" type="button" value="Test Game Server" onclick="show()"/>
